@@ -1,8 +1,11 @@
-import Header from '../components/header';
+import Sidebar from '../components/sidebar/index';
+import '../css/main.css';
 
 const Main = () => {
   return (
-    <Header />
+    <>
+      <Sidebar />
+    </>
   );
 };
 
