@@ -240,7 +240,7 @@ export const Grade = styled.p`
   font-weight: 300;
 `;
 
-export const Class = styled.p`
+export const ClassNo = styled.p`
   margin: 0;
   padding-left: 16px;
   min-width: 60px;

@@ -5,10 +5,10 @@ import Header from "./header";
 
 const Register = () => {
   const [ grade, setGrade ] = useState();
-  const [ nummber, setNumber ] = useState();
-  const [ order, setOrder ] = useState();
-  const [ name, setName ] = useState("");
-  const [ fingerPrintId, setFingerPrintId ] = useState("");
+  const [ classNo, setclassNo ] = useState();
+  const [ number, setnumber ] = useState();
+  const [ name, setName ] = useState('');
+  const [ fingerPrintId, setFingerPrintId ] = useState('');
 
   const submit = (e) => {
     e.preventDefault();
@@ -17,10 +17,10 @@ const Register = () => {
       type: "POST",
       url: "/",
       data: {
-        id: grade * 1000 + number * 100 + order,
+        id: grade * 1000 + classNo * 100 + number,
         grade: grade,
-        class: number,
-        number: order,
+        classNo: classNo,
+        number: number,
         name: name,
         fingerprint_id: fingerPrintId,
       },
@@ -40,13 +40,13 @@ const Register = () => {
           placeholder="학년"
         />
         <input
-          value={nummber}
-          onChange={(e) => setNumber(e.target.value)}
+          value={classNo}
+          onChange={(e) => setclassNo(e.target.value)}
           placeholder="반"
         />
         <input
-          value={order}
-          onChange={(e) => setOrder(e.target.value)}
+          value={number}
+          onChange={(e) => setnumber(e.target.value)}
           placeholder="번호"
         />
         <input

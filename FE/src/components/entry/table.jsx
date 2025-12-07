@@ -11,7 +11,7 @@ const Table = () => {
         <EntryStyled.CheckboxContainer> <EntryStyled.Checkbox type="checkbox" /> </EntryStyled.CheckboxContainer>
         <EntryStyled.Id> 학번 </EntryStyled.Id>
         <EntryStyled.Grade> 학년 </EntryStyled.Grade>
-        <EntryStyled.Class> 반 </EntryStyled.Class>
+        <EntryStyled.ClassNo> 반 </EntryStyled.ClassNo>
         <EntryStyled.Name> 이름 </EntryStyled.Name>
         <EntryStyled.Value> 날짜 </EntryStyled.Value>
         <EntryStyled.Value> 시간 </EntryStyled.Value>
@@ -21,14 +21,14 @@ const Table = () => {
     );
   };
 
-  const Column = ({ id, grade, number, name, date, time, records, device }) => {
+  const Column = ({ id, grade, classNo, name, date, time, records, device }) => {
     return (
       <>
         <EntryStyled.Column>
           <EntryStyled.CheckboxContainer> <EntryStyled.Checkbox type="checkbox" /> </EntryStyled.CheckboxContainer>
           <EntryStyled.Id> {id} </EntryStyled.Id>
           <EntryStyled.Grade> {grade} </EntryStyled.Grade>
-          <EntryStyled.Class> {number} </EntryStyled.Class>
+          <EntryStyled.ClassNo> {classNo} </EntryStyled.ClassNo>
           <EntryStyled.Name> {name} </EntryStyled.Name>
           <EntryStyled.Value> {date} </EntryStyled.Value>
           <EntryStyled.Value> {time} </EntryStyled.Value>
@@ -59,7 +59,7 @@ const Table = () => {
             key={index}
             id={item.id}
             grade={item.grade}
-            number={item.number}
+            classNo={item.classNo}
             name={item.name}
             date={item.date}
             time={item.time}
