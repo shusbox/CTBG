@@ -1,4 +1,4 @@
-import { DoorExitIcon } from "../../assets/icons";
+import { DoorExitIcon, FingerPrintIcon } from "../../assets/icons";
 import * as SidebarStyled from "../../styles/sidebar";
 
 const Item = ({ icon, content }) => {
@@ -14,6 +14,7 @@ const Nav = () => {
   return (
     <SidebarStyled.Nav>
       <Item icon={ <DoorExitIcon size={"20"} color="currentColor" /> } content={"출입 기록"} />
+      <Item icon={ <FingerPrintIcon size={"20"} color="currentColor" /> } content={"지문 등록"} />
     </SidebarStyled.Nav>
   );
 };

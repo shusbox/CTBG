@@ -4,7 +4,7 @@ export const Entry = styled.div`
   margin: 12px; 12px 12px 0;
   padding: 28px;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 24px);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -54,7 +54,10 @@ export const HeaderReset = styled.button`
 `;
 
 export const Body = styled.div`
-
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
 `;
 
 export const Sort = styled.div`
@@ -173,15 +176,98 @@ export const InputPost = styled.input`
 
 export const Table = styled.div`
   width: 100%;
-  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 `;
 
-export const Field = styled.div`
-  
-`;
-
-export const TableRow = styled.div`
+export const Row = styled.div`
   width: 100%;
+  min-height: 44px;
   display: flex;
   align-items: center;
+  color: var(--natural-700);
+  border-bottom: 1px solid var(--natural-300);
+`;
+
+export const ColumnContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1px;
+  background-color: var(--natural-300);
+  overflow: scroll;
+`;
+
+export const Column = styled.div`
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--natural-900);
+  background-color: var(--white)
+`;
+
+export const CheckboxContainer = styled.div`
+  width: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Checkbox = styled.input`
+  color: var(--primary-400);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Id = styled.p`
+  margin: 0;
+  padding-left: 16px;
+  min-width: 68px;
+  color: inherit;
+  font-weight: 300;
+`;
+
+export const Grade = styled.p`
+  margin: 0;
+  padding-left: 16px;
+  min-width: 72px;
+  color: inherit;
+  font-weight: 300;
+`;
+
+export const Class = styled.p`
+  margin: 0;
+  padding-left: 16px;
+  min-width: 60px;
+  color: inherit;
+  font-weight: 300;
+`;
+
+export const Name = styled.p`
+  margin: 0;
+  padding-left: 16px;
+  min-width: 100px;
+  color: inherit;
+  font-weight: 300;
+`;
+
+export const Value = styled.p`
+  margin: 0;
+  padding-left: 16px;
+  flex: 1;
+  color: inherit;
+  font-weight: 300;
+`;
+
+export const Records = styled.div`
+  margin: 0;
+  padding-left: 16px;
+  min-width: 100px;
+  color: inherit;
+  font-weight: 300;
 `;
