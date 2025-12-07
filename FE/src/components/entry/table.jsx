@@ -1,6 +1,10 @@
+import $ from "jquery";
+import { useState, useEffect } from "react";
 import * as EntryStyled from "../../styles/entry";
 
 const Table = () => {
+  const [rows, setRows] = useState([]);
+
   const Row = () => {
     return (
       <EntryStyled.Row>
@@ -35,40 +39,34 @@ const Table = () => {
     );
   };
 
+  useEffect(() => {
+    $.ajax({
+      type: "GET",
+      url: "/",
+    }).done((result) => {
+      setRows(result);
+    }).fail((result) => {
+      console.log(result);
+    });
+  }, []);
+
   return (
     <EntryStyled.Table>
       <Row />
       <EntryStyled.ColumnContainer>
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
-        <Column id="1215" grade="1학년" number="2반" name="진수화" date="2025.12.25" time="8시 40분 8초" />
+        {rows.map((item, index) => (
+          <Column
+            key={index}
+            id={item.id}
+            grade={item.grade}
+            number={item.number}
+            name={item.name}
+            date={item.date}
+            time={item.time}
+            records={item.records}
+            device={item.device}
+          />
+        ))}
       </EntryStyled.ColumnContainer>
     </EntryStyled.Table>
   );
