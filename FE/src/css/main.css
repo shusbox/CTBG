@@ -1,3 +1,4 @@
 body {
+  overflow: hidden;
   background-color: var(--natural-100);
 }

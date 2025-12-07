@@ -7,7 +7,7 @@ const Header = () => {
       <SidebarStyled.ProfileWrapper>
         <SidebarStyled.Profile />
         <SidebarStyled.ProfileContent>
-          <SidebarStyled.ProfileTitle> 김선예 </SidebarStyled.ProfileTitle>
+          <SidebarStyled.ProfileTitle> 최병준 </SidebarStyled.ProfileTitle>
           <SidebarStyled.ProfileSubtitle> 선생님 </SidebarStyled.ProfileSubtitle>
         </SidebarStyled.ProfileContent>
       </SidebarStyled.ProfileWrapper>
