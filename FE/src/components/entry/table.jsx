@@ -32,8 +32,8 @@ const Table = () => {
           <EntryStyled.Name> {name} </EntryStyled.Name>
           <EntryStyled.Value> {date} </EntryStyled.Value>
           <EntryStyled.Value> {time} </EntryStyled.Value>
-          <EntryStyled.Records> 입 · 퇴실 </EntryStyled.Records>
-          <EntryStyled.Records> 기기 </EntryStyled.Records>
+          <EntryStyled.Records> {records} </EntryStyled.Records>
+          <EntryStyled.Records> {device} </EntryStyled.Records>
         </EntryStyled.Column>
       </>
     );
