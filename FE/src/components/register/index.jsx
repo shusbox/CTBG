@@ -138,7 +138,13 @@ const Register = () => {
               <RegisterStyled.ContentHeader> 지문 인식 </RegisterStyled.ContentHeader>
               <RegisterStyled.ContentBody> 지문 칸을 눌러 지문을 인식하세요. </RegisterStyled.ContentBody>
             </RegisterStyled.Content>
-            <RegisterStyled.Scan onClick={onScan} />
+            {fingerPrintId === "" ?
+              <RegisterStyled.Scan onClick={onScan} />
+              :
+              <RegisterStyled.ScanSuccess>
+                <FingerPrintIcon size={40} color={"#3364FF"} />
+              </RegisterStyled.ScanSuccess>
+            }
           </RegisterStyled.Field>
           <RegisterStyled.ButtonContainer>
             <RegisterStyled.CancelButton onClick={() => navigate("/")}> 취소 </RegisterStyled.CancelButton>

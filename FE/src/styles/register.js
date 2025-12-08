@@ -134,6 +134,17 @@ export const Scan = styled.div`
   background-color: var(--natural-100);
 `;
 
+export const ScanSuccess = styled.div`
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--primary-500);
+  border-radius: 16px;
+  background-color: var(--primary-100);
+`;
+
 export const ButtonContainer = styled.div`
   align-self: flex-end;
   display: flex;
