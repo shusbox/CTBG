@@ -9,7 +9,7 @@ function waitForFinger() {
         return;
       }
       if (value === 1) { // 손가락 감지
-        console.log('지문 감지됨!');
+        console.log('지문 감지됨!');git 
         fingerSensor.unwatchAll();
         resolve();
       }
