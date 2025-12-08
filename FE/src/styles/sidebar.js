@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from '@emotion/styled';
 
 export const Sidebar = styled.div`
@@ -55,6 +56,10 @@ export const Nav = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+`;
+
+export const LinkContainer = styled(Link)`
+  text-decoration: none;
 `;
 
 export const Item = styled.div`

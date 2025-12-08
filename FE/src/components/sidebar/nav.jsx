@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { DoorExitIcon, FingerPrintIcon } from "../../assets/icons";
 import * as SidebarStyled from "../../styles/sidebar";
 
@@ -14,8 +13,8 @@ const Item = ({ icon, content }) => {
 const Nav = () => {
   return (
     <SidebarStyled.Nav>
-      <Link to="/entry"> <Item icon={ <DoorExitIcon size={"20"} color="currentColor" /> } content={"출입 기록"} /> </Link>
-      <Link to="/register"> <Item icon={ <FingerPrintIcon size={"20"} color="currentColor" /> } content={"지문 등록"} /> </Link>
+      <SidebarStyled.LinkContainer to="/entry"> <Item icon={ <DoorExitIcon size={"20"} color="currentColor" /> } content={"출입 기록"} /> </SidebarStyled.LinkContainer>
+      <SidebarStyled.LinkContainer to="/register"> <Item icon={ <FingerPrintIcon size={"20"} color="currentColor" /> } content={"지문 등록"} /> </SidebarStyled.LinkContainer>
     </SidebarStyled.Nav>
   );
 };
