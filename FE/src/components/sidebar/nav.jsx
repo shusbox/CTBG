@@ -14,8 +14,8 @@ const Item = ({ icon, content }) => {
 const Nav = () => {
   return (
     <SidebarStyled.Nav>
-      <Link path="/entry"> <Item icon={ <DoorExitIcon size={"20"} color="currentColor" /> } content={"출입 기록"} /> </Link>
-      <Link path="/register"> <Item icon={ <FingerPrintIcon size={"20"} color="currentColor" /> } content={"지문 등록"} /> </Link>
+      <Link tp="/entry"> <Item icon={ <DoorExitIcon size={"20"} color="currentColor" /> } content={"출입 기록"} /> </Link>
+      <Link tp="/register"> <Item icon={ <FingerPrintIcon size={"20"} color="currentColor" /> } content={"지문 등록"} /> </Link>
     </SidebarStyled.Nav>
   );
 };
