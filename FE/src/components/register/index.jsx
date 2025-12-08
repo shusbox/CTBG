@@ -74,7 +74,7 @@ const Register = () => {
 
   return (
     <>
-      <RegisterStyled.Backdrop />
+      <RegisterStyled.Backdrop onClick={() => navigate("/")} />
       <RegisterStyled.Container>
         <RegisterStyled.Header>
           <RegisterStyled.TitleWrapper>
