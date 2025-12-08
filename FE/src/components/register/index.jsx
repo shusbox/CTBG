@@ -1,69 +1,145 @@
-import { useState } from "react";
 import $ from "jquery";
-import * as RegisterStyled from "../../styles/register";
-import Header from "./header";
+import { useState } from "react";
+import * as RegisterStyled from "../../styles/register"
+import { FingerPrintIcon } from "../../assets/icons";
 
 const Register = () => {
-  const [ grade, setGrade ] = useState();
-  const [ nummber, setNumber ] = useState();
-  const [ order, setOrder ] = useState();
+  const [ grade, setGrade ] = useState("");
+  const [ classNo, setClassNo ] = useState("");
+  const [ number, setNumber ] = useState("");
   const [ name, setName ] = useState("");
   const [ fingerPrintId, setFingerPrintId ] = useState("");
 
-  const submit = (e) => {
-    e.preventDefault();
+  const [ successVisible, setSuccessVisible ] = useState(false);
+  const [ failedVisible, setFailedVisible ] = useState(false);
+
+  const Success = () => {
+    return (
+      <>
+        {successVisible && <RegisterStyled.Success> 등록 완료 </RegisterStyled.Success>}
+      </>
+    );
+  };
+
+  const Failed = () => {
+    return (
+      <>
+        {failedVisible && <RegisterStyled.Failed> 등록 실패 </RegisterStyled.Failed>}
+      </>
+    );
+  };
+
+  const onScan = () => {
+    // 지문 스캔
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
 
     $.ajax({
       type: "POST",
       url: "/",
       data: {
-        id: grade * 1000 + number * 100 + order,
         grade: grade,
-        class: number,
-        number: order,
+        classNo: classNo,
+        number: number,
         name: name,
-        fingerprint_id: fingerPrintId,
+        fingerPrintId: fingerPrintId,
       },
+      contentType: 'application/x-www-form-urlencoded',
     }).done(() => {
-      console.log("성공");
+      setGrade("");
+      setClassNo("");
+      setNumber("");
+      setName("");
+      setFingerPrintId("");
+
+      setSuccessVisible(true);
     }).fail((result) => {
-      console.log("실패", result);
+      console.log(result);
+      setFailedVisible(true);
     });
   };
 
-  const Form = () => {
-    return (
-      <>
-        <input
-          value={grade}
-          onChange={(e) => setGrade(e.target.value)}
-          placeholder="학년"
-        />
-        <input
-          value={nummber}
-          onChange={(e) => setNumber(e.target.value)}
-          placeholder="반"
-        />
-        <input
-          value={order}
-          onChange={(e) => setOrder(e.target.value)}
-          placeholder="번호"
-        />
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="이름"
-        />
-        <button onClick={submit}> 등록 </button>
-      </>
-    );
-  };
-
   return (
-    <RegisterStyled.Container>
-      <Header />
-      <Form />
-    </RegisterStyled.Container>
+    <>
+      <RegisterStyled.Backdrop />
+      <RegisterStyled.Container>
+        <RegisterStyled.Header>
+          <RegisterStyled.TitleWrapper>
+            <RegisterStyled.IconContainer> <FingerPrintIcon size={"16"} /> </RegisterStyled.IconContainer>
+            <RegisterStyled.Title> 지문 등록 </RegisterStyled.Title>
+          </RegisterStyled.TitleWrapper>
+          <RegisterStyled.Line />
+        </RegisterStyled.Header>
+        <RegisterStyled.Form>
+          <Success />
+          <Failed />
+          <RegisterStyled.Field>
+            <RegisterStyled.Content>
+              <RegisterStyled.ContentHeader> 학생 정보 </RegisterStyled.ContentHeader>
+              <RegisterStyled.ContentBody> 학생 정보를 입력하세요. </RegisterStyled.ContentBody>
+            </RegisterStyled.Content>
+            <RegisterStyled.InputContainer>
+              <RegisterStyled.InputContent>
+                <RegisterStyled.InputWrapper>
+                  <RegisterStyled.Label htmlFor="grade"> 학년 </RegisterStyled.Label>
+                  <RegisterStyled.Input
+                    id="grade"
+                    value={grade}
+                    onChange={(event) => setGrade(event.target.value)}
+                    placeholder="학년"
+                  />
+                </RegisterStyled.InputWrapper>
+                <RegisterStyled.InputWrapper>
+                  <RegisterStyled.Label htmlFor="classNo"> 반 </RegisterStyled.Label>
+                  <RegisterStyled.Input
+                    id="classNo"
+                    value={classNo}
+                    onChange={(event) => setClassNo(event.target.value)}
+                    placeholder="반"
+                  />
+                </RegisterStyled.InputWrapper>
+                <RegisterStyled.InputWrapper>
+                  <RegisterStyled.Label htmlFor="number"> 번호 </RegisterStyled.Label>
+                  <RegisterStyled.Input
+                    id="number"
+                    value={number}
+                    onChange={(event) => setNumber(event.target.value)}
+                    placeholder="번호"
+                  />
+                </RegisterStyled.InputWrapper>
+              </RegisterStyled.InputContent>
+              <RegisterStyled.InputWrapper>
+                <RegisterStyled.Label htmlFor="name"> 이름 </RegisterStyled.Label>
+                <RegisterStyled.Input
+                  id="name"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder="이름을 입력하세요"
+                />
+              </RegisterStyled.InputWrapper>
+            </RegisterStyled.InputContainer>
+          </RegisterStyled.Field>
+          <RegisterStyled.Line />
+          <RegisterStyled.Field>
+            <RegisterStyled.Content>
+              <RegisterStyled.ContentHeader> 지문 인식 </RegisterStyled.ContentHeader>
+              <RegisterStyled.ContentBody> 지문 칸을 눌러 지문을 인식하세요. </RegisterStyled.ContentBody>
+            </RegisterStyled.Content>
+            <RegisterStyled.Scan onClick={onScan} />
+          </RegisterStyled.Field>
+          <RegisterStyled.ButtonContainer>
+            <RegisterStyled.CancelButton> 취소 </RegisterStyled.CancelButton>
+            {fingerPrintId === "" ?
+              <RegisterStyled.offActiveButton> 지문 등록하기 </RegisterStyled.offActiveButton> 
+              :
+              <RegisterStyled.onActiveButton onClick={onSubmit}> 지문 등록하기 </RegisterStyled.onActiveButton> 
+            }
+          </RegisterStyled.ButtonContainer>
+        </RegisterStyled.Form>
+      </RegisterStyled.Container>
+    </>
   );
 };
 
