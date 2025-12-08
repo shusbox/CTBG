@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('./db');
+const pool = require('../src/db');
 
 // 학생 목록 조회
 router.get('/', async (req, res) => {

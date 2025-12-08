@@ -7,16 +7,16 @@ const app = express();
 app.use(express.json());
 
 // 라우터 import
-const studentsRouter = require('./routes/students');
-const accessRecordsRouter = require('./routes/accessRecords');
-const adminUsersRouter = require('./routes/adminUsers');
-const alertsRouter = require('./routes/alerts');
+const studentsRouter = require('../routes/students');
+// const accessRecordsRouter = require('./routes/accessRecords');
+// const adminUsersRouter = require('./routes/adminUsers');
+// const alertsRouter = require('./routes/alerts');
 
 // 라우터 연결
 app.use('/students', studentsRouter);
-app.use('/access-records', accessRecordsRouter);
-app.use('/admin-users', adminUsersRouter);
-app.use('/alerts', alertsRouter);
+// app.use('/access-records', accessRecordsRouter);
+// app.use('/admin-users', adminUsersRouter);
+// app.use('/alerts', alertsRouter);
 
 // 기본 라우트
 app.get('/', (req, res) => {
