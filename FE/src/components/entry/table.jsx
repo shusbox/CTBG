@@ -44,8 +44,7 @@ const Table = () => {
       type: "GET",
       url: "/",
     }).done((result) => {
-      setRows(Array.isArray(result) ? result : []); //test code
-      // setRows(result);
+      setRows(result);
     }).fail((result) => {
       console.log(result);
     });
