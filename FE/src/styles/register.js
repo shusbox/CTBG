@@ -169,3 +169,19 @@ export const CancelButton = styled.button`
   border-radius: 4px;
   background-color: var(--natural-100);
 `;
+
+export const Success = styled.div`
+  padding: 24px;
+  width: 100%;
+  color: #06AA06;
+  border: 1px solid #06AA06;
+  background-color: #DEFFDE;
+`;
+
+export const Failed = styled.div`
+  padding: 24px;
+  width: 100%;
+  color: #FF3333;
+  border: 1px solid #FF3333;
+  background-color: #FFD5D5;
+`;
