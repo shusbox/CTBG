@@ -1,27 +1,25 @@
 import styled from '@emotion/styled';
 
+export const Backdrop = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #363f4f51;
+`;
+
 export const Container = styled.div`
-  margin: 12px; 12px 12px 0;
-  padding: 28px;
-  width: 100%;
-  height: calc(100vh - 24px);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border: 1px solid var(--natural-300);
-  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  border-radius: 8px;
   background-color: var(--white);
-  box-sizing: border-box;
 `;
 
 export const Header = styled.div`
-  margin: 0 12px;
-  display: flex;
-  align-items: center;
-`;
-
-export const HeaderTitle = styled.h1`
-  margin: 0;
-  font-size: 22px;
-  font-weight: 400;
+  
 `;
