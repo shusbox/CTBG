@@ -173,15 +173,59 @@ export const CancelButton = styled.button`
 export const Success = styled.div`
   padding: 24px;
   width: 100%;
+  display: flex;
+  gap: 8px;
   color: #06AA06;
   border: 1px solid #06AA06;
+  border-radius: 12px;
   background-color: #DEFFDE;
+  box-sizing: border-box;
+`;
+
+export const SuccessContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+export const SuccessTitle = styled.h3`
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+export const SuccessDescription = styled.p`
+  margin: 0;
+  color: var(--natural-900);
+  font-size: 16px;
 `;
 
 export const Failed = styled.div`
   padding: 24px;
   width: 100%;
+  display: flex;
+  gap: 8px;
   color: #FF3333;
   border: 1px solid #FF3333;
+  border-radius: 12px;
   background-color: #FFD5D5;
+  box-sizing: border-box;
+`;
+
+export const FailedContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+export const FailedTitle = styled.h3`
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+export const FailedDescription = styled.p`
+  margin: 0;
+  color: var(--natural-900);
+  font-size: 16px;
 `;

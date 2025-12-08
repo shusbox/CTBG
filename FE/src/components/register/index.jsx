@@ -1,9 +1,12 @@
 import $ from "jquery";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as RegisterStyled from "../../styles/register"
-import { FingerPrintIcon } from "../../assets/icons";
+import { FingerPrintIcon, CheckIcon, WarningIcon } from "../../assets/icons";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [ grade, setGrade ] = useState("");
   const [ classNo, setClassNo ] = useState("");
   const [ number, setNumber ] = useState("");
@@ -15,17 +18,25 @@ const Register = () => {
 
   const Success = () => {
     return (
-      <>
-        {successVisible && <RegisterStyled.Success> 등록 완료 </RegisterStyled.Success>}
-      </>
+      <RegisterStyled.Success>
+        <CheckIcon size={16} color={"#06AA06"}/>
+        <RegisterStyled.SuccessContent>
+          <RegisterStyled.SuccessTitle> 등록 성공 </RegisterStyled.SuccessTitle>
+          <RegisterStyled.SuccessDescription> 지문 등록이 성공적으로 완료되었습니다. </RegisterStyled.SuccessDescription>
+        </RegisterStyled.SuccessContent>
+      </RegisterStyled.Success>
     );
   };
 
   const Failed = () => {
     return (
-      <>
-        {failedVisible && <RegisterStyled.Failed> 등록 실패 </RegisterStyled.Failed>}
-      </>
+      <RegisterStyled.Failed>
+        <WarningIcon size={16} color={"#FF3333"} />
+        <RegisterStyled.FailedContent>
+          <RegisterStyled.FailedContent> 등록 실패 </RegisterStyled.FailedContent>
+          <RegisterStyled.FailedDescription> 지문 등록에 실패했어요. </RegisterStyled.FailedDescription>
+        </RegisterStyled.FailedContent>
+      </RegisterStyled.Failed>
     );
   };
 
@@ -73,8 +84,8 @@ const Register = () => {
           <RegisterStyled.Line />
         </RegisterStyled.Header>
         <RegisterStyled.Form>
-          <Success />
-          <Failed />
+          {successVisible && <Success onClick={() => {setSuccessVisible(false)}} />}
+          {failedVisible && <Failed onClick={() => {setFailedVisible(false)}} />}
           <RegisterStyled.Field>
             <RegisterStyled.Content>
               <RegisterStyled.ContentHeader> 학생 정보 </RegisterStyled.ContentHeader>
@@ -130,7 +141,7 @@ const Register = () => {
             <RegisterStyled.Scan onClick={onScan} />
           </RegisterStyled.Field>
           <RegisterStyled.ButtonContainer>
-            <RegisterStyled.CancelButton> 취소 </RegisterStyled.CancelButton>
+            <RegisterStyled.CancelButton onClick={() => navigate("/")}> 취소 </RegisterStyled.CancelButton>
             {fingerPrintId === "" ?
               <RegisterStyled.offActiveButton> 지문 등록하기 </RegisterStyled.offActiveButton> 
               :
