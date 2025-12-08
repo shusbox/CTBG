@@ -11,7 +11,7 @@ const Register = () => {
   const [ classNo, setClassNo ] = useState("");
   const [ number, setNumber ] = useState("");
   const [ name, setName ] = useState("");
-  const [ fingerPrintId, setFingerPrintId ] = useState("");
+  const [ fingerPrintId, setFingerPrintId ] = useState("123");
 
   const [ successVisible, setSuccessVisible ] = useState(false);
   const [ failedVisible, setFailedVisible ] = useState(false);
@@ -49,7 +49,7 @@ const Register = () => {
 
     $.ajax({
       type: "POST",
-      url: "/",
+      url: "http://10.150.2.125:5000/register",
       data: {
         grade: grade,
         classNo: classNo,

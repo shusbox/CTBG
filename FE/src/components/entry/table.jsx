@@ -42,7 +42,7 @@ const Table = () => {
   useEffect(() => {
     $.ajax({
       type: "GET",
-      url: "/",
+      url: "http://10.150.2.125:5000/",
     }).done((result) => {
       setRows(result);
     }).fail((result) => {
