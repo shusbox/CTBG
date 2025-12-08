@@ -11,7 +11,7 @@ const Register = () => {
   const [ classNo, setClassNo ] = useState("");
   const [ number, setNumber ] = useState("");
   const [ name, setName ] = useState("");
-  const [ fingerPrintId, setFingerPrintId ] = useState("123");
+  const [ fingerPrintId, setFingerPrintId ] = useState("");
 
   const [ successVisible, setSuccessVisible ] = useState(false);
   const [ failedVisible, setFailedVisible ] = useState(false);
@@ -41,7 +41,7 @@ const Register = () => {
   };
 
   const onScan = () => {
-    // 지문 스캔
+    setFingerPrintId("123");
   };
 
   const onSubmit = (event) => {
